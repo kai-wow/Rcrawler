@@ -1,16 +1,9 @@
-
 # coding: utf-8
-
 # #  crawler the website data from jwc.dufe
-
 # @author: chen xue
-# 
 # @affilication: DUFE
-# 
-# 
 # @version: 0.1
 
-# 245]:
 
 # import the modules
 import os
@@ -22,12 +15,6 @@ import random
 import time
 # import json
 
-path = r'F:\Fintech\Rcrawler'
-if not os.path.exists(path):
-    os.mkdir(path)
-os.chdir(path)
- 
-start_urls = [r'http://jwc.dufe.edu.cn/index.php/article/notice.html?page=' + str(x) for x in range(1,24) ]
 
 myHttpheader = {  
   "User-Agent": r"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0",
@@ -54,16 +41,7 @@ def crawl_jwc_url(url):
         print('%s is not found' %(url))
     return urls
 
-jwc_urls = []
-for url in start_urls:
-        jwc_urls = jwc_urls + crawl_jwc_url(url)
-        info_all = []    
-for url in jwc_urls: 
-        time.sleep(random.randint(1,5)/10)
-        info = get_jwc_info(url)
-        info_all = info_all + [info]
-        
-        info_all = pd.DataFrame(info_all):
+
 
 # info_all_name = [x.text for x in soup.find_all('span', class_ = 'pl') if x.find_parents('div', id = 'info') != []]
 def get_jwc_info(url):
@@ -90,24 +68,26 @@ def get_jwc_info(url):
     return info
 
 
-# 249]:
-
-
     # set the work file directory
   
     # Get the start urls.
+path = r'd:\pc'
+if not os.path.exists(path):
+    os.mkdir(path)
+os.chdir(path)
+ 
+start_urls = [r'http://jwc.dufe.edu.cn/index.php/article/notice.html?page=' + str(x) for x in range(1,24) ]
+
     
+jwc_urls = []
+for url in start_urls:
+    jwc_urls = jwc_urls + crawl_jwc_url(url)
+    info_all = []    
+for url in jwc_urls: 
+    time.sleep(random.randint(1,5)/10)
+    info = get_jwc_info(url)
+    info_all = info_all + [info]
+    print(info_all)
+info_all = pd.DataFrame(info_all)  
+print(info_all)
     
-    
-    
-
-
-# 250]:
-
-info_all
-
-
-#  ]:
-
-
-

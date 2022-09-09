@@ -17,16 +17,16 @@ class MakePassword(object):
 		self.timeout = 3
 		self.flag = 0
 		self.run = {
-'0':exit,
-'1':self.getRawList,
-'2':self.addDenyList,
-'3':self.clearRawList,
-'4':self.setRawList,
-'5':self.modifyPasswordLen,
-'6':self.createPasswordList,
-'7':self.showPassword,
-'8':self.createPasswordFile
-}
+			'0':exit,
+			'1':self.getRawList,
+			'2':self.addDenyList,
+			'3':self.clearRawList,
+			'4':self.setRawList,
+			'5':self.modifyPasswordLen,
+			'6':self.createPasswordList,
+			'7':self.showPassword,
+			'8':self.createPasswordFile
+			}
 		self.main()
 
 	def main(self):

@@ -3,12 +3,8 @@
 #python 爬虫作业——东财教务处
 
 # #  crawler the website data from jwc.dufe
-
 # @author: chen xue
-# 
 # @affilication: DUFE
-# 
-# 
 # @version: 1.0
 
 
@@ -49,7 +45,7 @@ def get_jwc_urls(url):
         pattern = r'index.php/article/detail/id/'
         urls = ['http://jwc.dufe.edu.cn/'+x['href'] for x in soup.find_all('a', href = re.compile(pattern,re.I))]
         urls = list(set(urls))
-        
+        print(urls)
     except:
         print(web.status_code)
         print('error')
@@ -74,7 +70,7 @@ def get_jwcmessages_info(url):
     return info
 
 if __name__ == '__main__':
-    path = r'F:\Fintech\pycrawler'
+    path = r'D:\pc'
     if not os.path.exists(path):
         os.mkdir(path)
     os.chdir(path)
@@ -83,7 +79,7 @@ if __name__ == '__main__':
     
     jwc_urls = []
     for url in start_urls:
-        jwc_urls = jwc_urls + get_jwcpages_urls(url)
+        jwc_urls = jwc_urls + get_jwc_urls(url)
     info_all = []    
     for url in jwc_urls:
         time.sleep(random.randint(1,5)/10)
@@ -92,7 +88,7 @@ if __name__ == '__main__':
         
     info_all = pd.DataFrame(info_all)
 
-info_all
+    print(info_all)
 
 
 

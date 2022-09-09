@@ -10,9 +10,9 @@ class TestLogging(object):
 		logFileName = './testLog.txt'
 
 		logging.basicConfig(level = logging.INFO,
-format = logFormat,
-filename = logFileName,
-filemode = 'w')
+			format = logFormat,
+			filename = logFileName,
+			filemode = 'w')
 
 		logging.debug('debug message')
 		logging.info('info message')

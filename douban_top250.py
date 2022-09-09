@@ -1,16 +1,9 @@
-
 # coding: utf-8
-
 # #  crawler the website data from jwc.dufe
-
 # @author: chen xue
-# 
 # @affilication: DUFE
-# 
-# 
 # @version: 0.1
 
-# 245]:
 
 # import the modules
 import os
@@ -51,12 +44,10 @@ def get_top250_urls(url):
         print(web.status_code)
         print('%s is not found' %(url))
         urls = []
-        return urls
+    return urls
 
 
 # Define the function to get the information of a movie.
-
-# 248]:
 
 # info_all_name = [x.text for x in soup.find_all('span', class_ = 'pl') if x.find_parents('div', id = 'info') != []]
 def get_movie_info(url):
@@ -82,8 +73,6 @@ def get_movie_info(url):
         return info
 
 
-# 249]:
-
 if __name__ == '__main__':
     # set the work file directory
     path =  r'D:\pc' # r'F:\Fintech\Rcrawler'
@@ -93,7 +82,7 @@ if __name__ == '__main__':
     
     # Get the start urls.
     start_urls = [r'https://movie.douban.com/top250?start=' + str(x * 25) + r'&filter=' for x in range(10) ]
-    
+    # print(start_urls)
     top250_urls = []
     for url in start_urls:
         top250_urls = top250_urls + get_top250_urls(url)
@@ -106,13 +95,4 @@ if __name__ == '__main__':
     info_all = pd.DataFrame(info_all)
     
     print(info_all)
-
-# 250]:
-
-# info_all
-
-
-#  ]:
-
-
 
